@@ -1,0 +1,5 @@
+name: MenuAPI
+version: ${project.version}
+main: me.liamhbest.MenuAPI
+authors: [ LiamHBest ]
+description: An API for making it easier to create GUIs in Minecraft.
