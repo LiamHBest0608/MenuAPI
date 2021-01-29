@@ -16,13 +16,14 @@ import java.util.UUID;
 public final class MenuAPI extends JavaPlugin {
     public static ArrayList<String> lore = new ArrayList<>();
     public static Inventory inventory;
+    public static Player p;
 
-    public static void mainGUI(Player p){
-        MenuAPI api = MenuAPI.createGUI(p);
-        api.setName("&6This name");
-        api.setSlots(27);
-        api.addItem(Material.SIGN_POST, "&6Cool", lore, 27);
-        api.create(p);
+    public static void mainGUI(Player player){
+        MenuAPI gui = MenuAPI.createGUI(player);
+        gui.setSlots(54);
+        gui.setTitle("&a&lEPIC DOOR GUI");
+        gui.addItem(Material.ACACIA_DOOR, "&6My Cool Door", lore, 0);
+        gui.create();
     }
 
     public static MenuAPI createGUI(Player player){
@@ -30,7 +31,7 @@ public final class MenuAPI extends JavaPlugin {
     }
 
     private MenuAPI(Player player){
-
+        p = player;
     }
 
     public ItemStack addItem(Material material, String displayName, ArrayList<String> lore, int slot){
@@ -42,7 +43,7 @@ public final class MenuAPI extends JavaPlugin {
         return item;
     }
 
-    public String setName(String name){
+    public String setTitle(String name){
         return ChatColor.translateAlternateColorCodes('&', name);
     }
 
@@ -50,8 +51,8 @@ public final class MenuAPI extends JavaPlugin {
         return slots;
     }
 
-    public void create(Player player){
-
+    public void create(){
+        p.openInventory(inventory);
     }
 
 }
