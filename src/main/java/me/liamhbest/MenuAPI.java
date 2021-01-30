@@ -53,6 +53,7 @@ public final class MenuAPI extends JavaPlugin {
 
     public void create(){
         p.openInventory(inventory);
+        p.getWorld();
     }
 
 }
